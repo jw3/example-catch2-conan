@@ -1,4 +1,3 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include <catch.hpp>
 #include <Cache.h>
 
@@ -8,5 +7,6 @@ TEST_CASE("catch") {
    std::string expected = "y";
    c.put("x", expected);
 
-   REQUIRE(c.get("x").value_or("_") == expected);
+   REQUIRE(c.get("x"));
+   REQUIRE(c.get("x") == expected);
 }
